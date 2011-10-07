@@ -11,6 +11,8 @@ Change to the desired directory.
 Clone the repo.
 
 	git clone git@github.com:somethingkindawierd/.vim.git vim
+	git submodule init
+	git submodule update
 
 Link the `vim` folder and `vimrc` to correct location.
 
