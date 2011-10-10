@@ -21,22 +21,10 @@ Link the `vim` folder and `vimrc` to correct location.
 
 Enjoy.
 
-VIM 7.3
--------
+More Information
+----------------
 
-To utilize all the plugins VIM must be compiled with ruby & python support.
-Here's how I accomplish this in Ubuntu.
-
-Install dependiencies
-
-	sudo apt-get install mercurial
-    sudo apt-get build-dep vim-gnome
-    sudo apt-get install libssl-dev python-dev ruby-dev
-
-    hg clone https://vim.googlecode.com/hg/ ~/Source/vim
-    cd ~/Source/vim
-    ./configure --enable-multibyte --enable-pythoninterp=yes --enable-rubyinterp --enable-xim --enable-gui=gnome2 --with-features=huge --prefix=$HOME
-    make
-	make install
+For more VIM goodness, check out [Jon Beebe's VIM Tips wiki](https://github.com/somethingkindawierd/somethingkindawierd.github.com/wiki/VIM-Tips).
+It comes complete with compilation/installation instructions, as well as advanced `ctags` use for `php` and `javascript`.
 
 
