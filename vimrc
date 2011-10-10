@@ -106,6 +106,14 @@ let g:tagbar_left = 1
 map <F6> :tabn<cr>
 map <S-F6> :tabp<cr>
 
+" Function: Open tag under cursor in new tab
+" Source:   http://stackoverflow.com/questions/908269/opening-ctags-in-new-tab-in-gvim/908316#908316
+" map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Open tag in new tab.
+" http://stackoverflow.com/questions/539231/how-to-use-multiple-tabs-when-tagging-to-a-function-in-vim/539363#539363
+nmap <C-\> <C-w><C-]><C-w>T
+
 " Testing Ctrl-s for saving in insert mode
 " in the bash shell you might need to disable flow control. Use this command:
 " bash$ stty -ixon -ixoff
