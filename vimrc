@@ -59,8 +59,9 @@ set laststatus=2 " always show the status line. 1 = for > 1 window, 0 = never.
 syntax enable
 set background=light
 " set background=dark
-set t_Co=16
-let g:solarized_termcolors=16
+" set t_Co=16
+set t_Co=256
+" let g:solarized_termcolors=16
 colorscheme solarized
 
 " Highlight searches.
@@ -124,7 +125,7 @@ nmap <C-\> <C-w><C-]><C-w>T
 :imap <C-_> <Esc>
 
 " Highlight .less filetypes as if they are css.
-au BufNewFile,BufRead *.less set filetype=less
+" au BufNewFile,BufRead *.less set filetype=less
 
 " Persistent Undo for VIM 7.3
 set undofile
