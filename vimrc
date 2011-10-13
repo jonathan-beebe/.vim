@@ -258,3 +258,9 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+
+" Paste default register over current selection, deleting the selected text to black-hole register
+" http://stackoverflow.com/questions/7747426/can-vim-replace-a-text-object-with-the-default-register/7749767#7749767
+" Given text in the default register, use it like this to paste into a set of parens:
+" vi(,p
+vnoremap <Leader>p "_dP
