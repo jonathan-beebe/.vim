@@ -175,8 +175,8 @@ let g:indent_on = 0
 autocmd FileType javascript set ft=javascript.mootools
 
 " Map the session commands for more granular control
-nmap SSZ :wa<CR>:mksession! ~/Dropbox/ubuntu/vim/sessions/
-nmap SZ :wa<CR>:so ~/Dropbox/ubuntu/vim/sessions/
+nmap SSZ :wa<CR>:mksession! ~/Dropbox/Documents/vim/sessions/
+nmap SZ :wa<CR>:so ~/Dropbox/Documents/vim/sessions/
 " Specifically remove help and options from default session list
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 
