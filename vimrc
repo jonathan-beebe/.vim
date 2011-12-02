@@ -264,3 +264,7 @@ vmap <C-Down> ]egv
 " Given text in the default register, use it like this to paste into a set of parens:
 " vi(,p
 vnoremap <Leader>p "_dP
+
+" Reload all snippets using snipmate function.
+" http://code.google.com/p/snipmate/issues/detail?id=67#c6
+nmap ,rr :call ReloadAllSnippets()<CR>

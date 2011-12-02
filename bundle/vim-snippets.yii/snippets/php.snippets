@@ -1,6 +1,10 @@
-snippet dump
-	CVarDumper::dumpAsString(${1:param})
-snippet debug Simple
-	Yii::debug(${1:message}, 'debug');
-snippet debug Dump
-	Yii::debug(${1:message} . CVarDumper::dumpAsString(${2:var}), 'debug');
+snippet dump Basic
+	CVarDumper::dumpAsString(${1:param});
+snippet dump Echo
+	echo '<pre> ' . CVarDumper::dumpAsString(${1:param}) . '</pre>';
+snippet trace Simple
+	Yii::trace(${1:message}, 'debug');
+snippet trace Dump
+	Yii::trace(${1:message} . CVarDumper::dumpAsString(${2:var}), 'debug');
+snippet end
+	Yii::app()->end();
