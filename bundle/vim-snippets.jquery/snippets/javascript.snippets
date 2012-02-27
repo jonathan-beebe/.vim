@@ -1,7 +1,7 @@
 snippet plugin Full
 	(function($) {
 
-		$.${1:pluginName} = function(element, options) {
+		$.${1:ClassName} = function(element, options) {
 
 			//-------------------------------------------------------------------------
 			// Define defaults and global vars for this scope
@@ -67,7 +67,7 @@ snippet plugin Full
 snippet plugin Simple
 	(function($) {
 
-		$.${1:pluginName} = function(element, options) {
+		$.${1:ClassName} = function(element, options) {
 
 			var defaults = {};
 
@@ -118,3 +118,74 @@ snippet closure $
 	(function($, undefined) {
 	  // code goes here.
 	}(jQuery);
+snippet plugin Prototype
+	;(function( $, window, document, undefined ){
+
+	  var bind = function(func, context) {
+	    return $.proxy(func, context);
+	  };
+
+	  var ${1:ClassName} = function(element, options) {
+
+	    this.$element = $(element);
+	    this.element = element;
+
+	    this.options = options;
+
+	    // This next line takes advantage of HTML5 data attributes
+	    // to support customization of the plugin on a per-element
+	    // basis. For example,
+	    // <div class=item' data-plugin-options='{"message":"Goodbye World!"}'></div>
+	    this.metadata = this.$element.data( 'plugin-options' );
+	    
+	    this.init();
+	  };
+
+	  ${1:ClassName}.prototype = {
+
+	      defaults: {},
+
+	      init: function() {
+	          var self = this;
+	          self.config = $.extend({}, self.defaults, self.options, self.metadata);
+	          ${3:// code goes here}
+	          return self;
+	      }
+
+	  };
+
+	  ${1:ClassName}.defaults = ${1:ClassName}.prototype.defaults;
+
+	  // ---------------------------------------------------------------------------
+	  // Add this plugin to the jQuery fn namespace.
+	  // ---------------------------------------------------------------------------
+
+	  /**
+	   * Create the jQuery plugin.
+	   *
+	   * @param {object} options The options map.
+	   * @param {boolean} api Should we return the api, or the jQuery wrapped elements?
+	   *     Default false will return jQuery object. When returning the api the result
+	   *     will be the api from the first matched element.
+	   * @return Will return the jQuery wrapped elements, or optionally the api object.
+	   */
+	  $.fn.${2:pluginName} = function(options, api) {
+
+	    var results = this.each(function() {
+	      if (undefined == $(this).data('${2:pluginName}')) {
+	          var plugin = (new ${1:ClassName}(this, options)).init();
+	          $(this).data('${2:pluginName}', plugin);
+	      }
+	    });
+
+	    if(api === true) {
+	      return $(results[0]).data('${2:pluginName}');
+	    }
+	    else {
+	      return results;
+	    }
+
+	  };
+
+	})( jQuery, window , document );
+
