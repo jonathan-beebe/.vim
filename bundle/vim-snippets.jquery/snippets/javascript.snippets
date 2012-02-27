@@ -141,7 +141,7 @@ snippet plugin Prototype
 	    this.init();
 	  };
 
-	  ${1:ClassName}.prototype = {
+	  $1.prototype = {
 
 	      defaults: {},
 
@@ -154,7 +154,7 @@ snippet plugin Prototype
 
 	  };
 
-	  ${1:ClassName}.defaults = ${1:ClassName}.prototype.defaults;
+	  $1.defaults = $1.prototype.defaults;
 
 	  // ---------------------------------------------------------------------------
 	  // Add this plugin to the jQuery fn namespace.
@@ -172,14 +172,14 @@ snippet plugin Prototype
 	  $.fn.${2:pluginName} = function(options, api) {
 
 	    var results = this.each(function() {
-	      if (undefined == $(this).data('${2:pluginName}')) {
-	          var plugin = (new ${1:ClassName}(this, options)).init();
-	          $(this).data('${2:pluginName}', plugin);
+	      if (undefined == $(this).data('$2')) {
+	          var plugin = (new $1(this, options)).init();
+	          $(this).data('$2', plugin);
 	      }
 	    });
 
 	    if(api === true) {
-	      return $(results[0]).data('${2:pluginName}');
+	      return $(results[0]).data('$2');
 	    }
 	    else {
 	      return results;
