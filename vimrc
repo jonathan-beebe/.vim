@@ -273,3 +273,6 @@ set nobackup
 set nowritebackup
 
 set wildignore+=*.o,*.obj,.git,*yii-*,*.jpg,*.gif,*.png,*.jpeg,yii
+" Reload all snippets using snipmate function.
+" http://code.google.com/p/snipmate/issues/detail?id=67#c6
+nmap ,rr :call ReloadAllSnippets()<CR>

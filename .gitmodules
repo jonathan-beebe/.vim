@@ -19,9 +19,6 @@
 [submodule "bundle/PHP-Indenting-for-VIm"]
 	path = bundle/PHP-Indenting-for-VIm
 	url = https://github.com/2072/PHP-Indenting-for-VIm.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
@@ -55,3 +52,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
