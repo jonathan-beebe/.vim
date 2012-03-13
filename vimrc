@@ -194,10 +194,6 @@ nmap :Q :q<CR>
 " Toggle visibility of the undo tree via the Gundo plugin
 nnoremap <F5> :GundoToggle<CR>
 
-" Store swap files in a common location, not as sidecar files
-set directory=~/.vimswap,/tmp
-set backupdir=~/.vimbackup,/tmp
-
 " Run `gjslint` on javascript files using `:make`
 " from https://gist.github.com/725689
 au BufNewFile,BufRead *.js set makeprg=gjslint\ %
@@ -264,3 +260,16 @@ vmap <C-Down> ]egv
 " Given text in the default register, use it like this to paste into a set of parens:
 " vi(,p
 vnoremap <Leader>p "_dP
+
+" Store swap files in a common location, not as sidecar files
+set directory=~/.vimswap,/tmp
+set backupdir=~/.vimbackup,/tmp
+
+set noswapfile
+set nobackup
+
+" Disable those temp files
+set nobackup
+set nowritebackup
+
+set wildignore+=*.o,*.obj,.git,*yii-*,*.jpg,*.gif,*.png,*.jpeg,yii
