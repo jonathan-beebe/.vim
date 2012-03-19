@@ -55,3 +55,9 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git://github.com/msanders/snipmate.vim.git
+[submodule "bundle/SourceExplorer"]
+	path = bundle/SourceExplorer
+	url = https://github.com/vim-scripts/Source-Explorer-srcexpl.vim.git
+[submodule "bundle/Trinity"]
+	path = bundle/Trinity
+	url = https://github.com/vim-scripts/trinity.vim.git

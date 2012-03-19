@@ -8,6 +8,10 @@ let mapleader = ","
 "Map NERDTree to ,p
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
+" Command-T
+" Search through all open butters using ,T
+nmap <silent> <Leader>T :CommandTBuffer<CR>
+
 " Copy All to global clipboard
 nmap <silent> <Leader>ca gg"+yG
 " Copy to global clipboard
@@ -19,7 +23,12 @@ nmap <silent> <Leader>c "+y
 " To have the completion behave similarly to a shell, i.e. complete only up to
 " the point of ambiguity (while still showing you what your options are),
 " also add the following
-set wildmode=list:longest
+" set wildmode=list:longest
+" Adding ,full will complete full word, looping thru choices ond 2nd,3rd+ tabs
+set wildmode=list:longest,full
+
+"enables a menu at the bottom of the vim/gvim window.
+set wildmenu
 
 " Render a pretty title in the terminal window
 " This gives e.g. | page.html (~) - VIM |.
@@ -276,3 +285,12 @@ set wildignore+=*.o,*.obj,.git,*yii-*,*.jpg,*.gif,*.png,*.jpeg,yii
 " Reload all snippets using snipmate function.
 " http://code.google.com/p/snipmate/issues/detail?id=67#c6
 nmap ,rr :call ReloadAllSnippets()<CR>
+
+" http://stackoverflow.com/a/563992/123781
+" Navigating with tags
+" Open the definition in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Open the definition in a vertical split
+" Does not work on gnome terminal because Alt does not work.
+" map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
