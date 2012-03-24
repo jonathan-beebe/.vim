@@ -178,6 +178,8 @@ function! ToggleFoldColumns()
      endif
 endfunction
 
+map <leader>tc :call ToggleFoldColumns()<CR>
+
 let g:indent_on = 0
 
 " Add mootools snippets to javascript files.
@@ -294,3 +296,24 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 " Does not work on gnome terminal because Alt does not work.
 " map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Recomended by LustyExplorer
+set hidden
+
+" Markdown preview
+imap <leader>md <ESC>:w!<CR>:!markdown % < %.html && open %.html<CR><CR>a
+map  <leader>md <ESC>:w!<CR>:!markdown % < %.html && open %.html<CR><CR>a
+
+" http://www.userobsessed.net/tips-and-tricks/2011/05/10/copy-and-paste-in-vim/
+" Fix vim pasting in Insert mode. Paste using ,v in insert mode.
+imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
+
+" gv selects previously visually selected text.
+" this adds gp to select the last pasted text
+" http://vim.wikia.com/wiki/Selecting_your_pasted_text
+" nnoremap gp `[v`]
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Set the filename for all local vimrc files.
+" These will be auto-loaded after the main vimrc
+" thanks to the local_vimrc plugin
+let g:local_vimrc = ".vimrc.local"
