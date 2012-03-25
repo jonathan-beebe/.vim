@@ -79,3 +79,9 @@
 [submodule "bundle/local_vimrc"]
 	path = bundle/local_vimrc
 	url = https://github.com/vim-scripts/local_vimrc.vim.git
+[submodule "bundle/auto-pairs"]
+	path = bundle/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule "bundle/sudo"]
+	path = bundle/sudo
+	url = https://github.com/vim-scripts/sudo.vim.git
