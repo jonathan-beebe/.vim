@@ -8,6 +8,10 @@ let mapleader = ","
 "Map NERDTree to ,p
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
+" Command-T
+" Search through all open butters using ,T
+nmap <silent> <Leader>T :CommandTBuffer<CR>
+
 " Copy All to global clipboard
 nmap <silent> <Leader>ca gg"+yG
 " Copy to global clipboard
@@ -19,7 +23,12 @@ nmap <silent> <Leader>c "+y
 " To have the completion behave similarly to a shell, i.e. complete only up to
 " the point of ambiguity (while still showing you what your options are),
 " also add the following
-set wildmode=list:longest
+" set wildmode=list:longest
+" Adding ,full will complete full word, looping thru choices ond 2nd,3rd+ tabs
+set wildmode=list:longest,full
+
+"enables a menu at the bottom of the vim/gvim window.
+set wildmenu
 
 " Render a pretty title in the terminal window
 " This gives e.g. | page.html (~) - VIM |.
@@ -169,6 +178,8 @@ function! ToggleFoldColumns()
      endif
 endfunction
 
+map <leader>tc :call ToggleFoldColumns()<CR>
+
 let g:indent_on = 0
 
 " Add mootools snippets to javascript files.
@@ -193,10 +204,6 @@ nmap :Q :q<CR>
 
 " Toggle visibility of the undo tree via the Gundo plugin
 nnoremap <F5> :GundoToggle<CR>
-
-" Store swap files in a common location, not as sidecar files
-set directory=~/.vimswap,/tmp
-set backupdir=~/.vimbackup,/tmp
 
 " Run `gjslint` on javascript files using `:make`
 " from https://gist.github.com/725689
@@ -265,6 +272,81 @@ vmap <C-Down> ]egv
 " vi(,p
 vnoremap <Leader>p "_dP
 
+" Store swap files in a common location, not as sidecar files
+set directory=~/.vimswap,/tmp
+set backupdir=~/.vimbackup,/tmp
+
+set noswapfile
+set nobackup
+
+" Disable those temp files
+set nobackup
+set nowritebackup
+
+set wildignore+=*.o,*.obj,.git,*yii-*,*.jpg,*.gif,*.png,*.jpeg,yii
 " Reload all snippets using snipmate function.
 " http://code.google.com/p/snipmate/issues/detail?id=67#c6
 nmap ,rr :call ReloadAllSnippets()<CR>
+
+" http://stackoverflow.com/a/563992/123781
+" Navigating with tags
+" Open the definition in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+" Open the definition in a vertical split
+" Does not work on gnome terminal because Alt does not work.
+" map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" Recomended by LustyExplorer
+set hidden
+
+" Markdown preview
+imap <leader>md <ESC>:w!<CR>:!markdown % < %.html && open %.html<CR><CR>a
+map  <leader>md <ESC>:w!<CR>:!markdown % < %.html && open %.html<CR><CR>a
+
+" http://www.userobsessed.net/tips-and-tricks/2011/05/10/copy-and-paste-in-vim/
+" Fix vim pasting in Insert mode. Paste using ,v in insert mode.
+imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
+
+" gv selects previously visually selected text.
+" this adds gp to select the last pasted text
+" http://vim.wikia.com/wiki/Selecting_your_pasted_text
+" nnoremap gp `[v`]
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Set the filename for all local vimrc files.
+" These will be auto-loaded after the main vimrc
+" thanks to the local_vimrc plugin
+let g:local_vimrc = ".vimrc.local"
+
+" Prefix the name of each tab with a number, e.g.
+" 1) vimrc 2) test.js  
+" http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
+if exists("+showtabline")
+     function MyTabLine()
+         let s = ''
+         let t = tabpagenr()
+         let i = 1
+         while i <= tabpagenr('$')
+             let buflist = tabpagebuflist(i)
+             let winnr = tabpagewinnr(i)
+             let s .= '%' . i . 'T'
+             let s .= (i == t ? '%1*' : '%2*')
+             let s .= ' '
+             let s .= i . ')'
+             let s .= ' %*'
+             let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+             let file = bufname(buflist[winnr - 1])
+             let file = fnamemodify(file, ':p:t')
+             if file == ''
+                 let file = '[No Name]'
+             endif
+             let s .= file
+             let i = i + 1
+         endwhile
+         let s .= '%T%#TabLineFill#%='
+         let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+         return s
+     endfunction
+     set stal=2
+     set tabline=%!MyTabLine()
+endif
