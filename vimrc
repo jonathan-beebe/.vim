@@ -248,7 +248,7 @@ map Q <Nop>
 
 " Auto-compile a style.less file into style.css
 " http://forrst.com/posts/Make_vim_compile_less_css_files_on_save-D0v
-autocmd BufWritePost *.less exe '!lessc ' . shellescape(expand('<afile>')) . ' ' . shellescape(expand('<afile>:r')) . '.css'
+autocmd BufWritePost *.less exe '!lessc ' . shellescape(expand('<afile>')) . ' > ' . shellescape(expand('<afile>:r') . '.css')
 
 " Toggle the "paste mode"
 set pastetoggle=<F2>
