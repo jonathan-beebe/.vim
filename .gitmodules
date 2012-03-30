@@ -85,3 +85,9 @@
 [submodule "bundle/sudo"]
 	path = bundle/sudo
 	url = https://github.com/vim-scripts/sudo.vim.git
+[submodule "bundle/abolish"]
+	path = bundle/abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
