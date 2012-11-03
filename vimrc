@@ -351,8 +351,17 @@ if exists("+showtabline")
      set tabline=%!MyTabLine()
 endif
 
+" Objective C (objc)
 au BufNewFile,BufRead *.m,*.h set ft=objc
+
+" List methods courtesy of cocoa plugin
+map <leader>ll :ListMethods<CR>
+
 "let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
 "let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 "let g:clang_user_options='-fblocks -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk - D__IPHONE_OS_VERSION_MIN_REQUIRED=50000' 
+
+" Tags
+" Set vim to use tags
+set tags=./tags,tags,./
 
