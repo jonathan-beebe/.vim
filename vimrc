@@ -350,3 +350,9 @@ if exists("+showtabline")
      set stal=2
      set tabline=%!MyTabLine()
 endif
+
+au BufNewFile,BufRead *.m,*.h set ft=objc
+"let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
+"let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+"let g:clang_user_options='-fblocks -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.0.sdk - D__IPHONE_OS_VERSION_MIN_REQUIRED=50000' 
+

@@ -94,3 +94,12 @@
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "bundle/vim-ios"]
+	path = bundle/vim-ios
+	url = https://github.com/eraserhd/vim-ios.git
+#[submodule "bundle/clang_complete"]
+#	path = bundle/clang_complete
+#	url = https://github.com/Rip-Rip/clang_complete.git
+[submodule "bundle/cocoa.vim"]
+	path = bundle/cocoa.vim
+	url = https://github.com/msanders/cocoa.vim.git
