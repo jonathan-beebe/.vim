@@ -102,4 +102,4 @@
 #	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule "bundle/cocoa.vim"]
 	path = bundle/cocoa.vim
-	url = https://github.com/msanders/cocoa.vim.git
+	url = https://github.com/vim-scripts/cocoa.vim.git
