@@ -365,3 +365,4 @@ map <leader>ll :ListMethods<CR>
 " Set vim to use tags
 set tags=./tags,tags,./
 
+let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
