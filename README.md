@@ -14,6 +14,15 @@ Clone the repo.
 	git submodule init
 	git submodule update
 
+To update an existing installation:
+
+        # pull changes from master
+        git pull origin master
+        
+        # update all bundled plugins from their master branches.
+        # the normal `git submodule update` does not work for this purpose.
+        git submodule foreach 'git pull origin master'
+
 Link the `vim` folder and `vimrc` to correct location.
 
 	ln -s /home/beebe/Source/vim /home/beebe/.vim
