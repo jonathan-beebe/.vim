@@ -112,3 +112,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/objc_matchbracket"]
+	path = bundle/objc_matchbracket
+	url = https://github.com/qqshfox/objc_matchbracket.git
