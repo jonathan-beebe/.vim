@@ -34,9 +34,6 @@
 [submodule "bundle/vim-togglemouse"]
 	path = bundle/vim-togglemouse
 	url = git://github.com/nvie/vim-togglemouse.git
-[submodule "bundle/vim-unimpaired"]
-	path = bundle/vim-unimpaired
-	url = https://github.com/tpope/vim-unimpaired
 [submodule "bundle/zencoding-vim"]
 	path = bundle/zencoding-vim
 	url = https://github.com/mattn/zencoding-vim.git
@@ -97,21 +94,21 @@
 [submodule "bundle/vim-ios"]
 	path = bundle/vim-ios
 	url = https://github.com/eraserhd/vim-ios.git
-#[submodule "bundle/clang_complete"]
-#	path = bundle/clang_complete
-#	url = https://github.com/Rip-Rip/clang_complete.git
 [submodule "bundle/cocoa.vim"]
 	path = bundle/cocoa.vim
 	url = https://github.com/vim-scripts/cocoa.vim.git
 [submodule "bundle/vim-signature"]
 	path = bundle/vim-signature
 	url = https://github.com/kshenoy/vim-signature.git
-#[submodule "bundle/supertab"]
-#	path = bundle/supertab
-#	url = https://github.com/ervandew/supertab.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/objc_matchbracket"]
 	path = bundle/objc_matchbracket
 	url = https://github.com/qqshfox/objc_matchbracket.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-unimpaired"]
+	path = bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git

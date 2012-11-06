@@ -61,9 +61,27 @@ set incsearch
 set ignorecase
 set smartcase
 
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" vim ui
+"'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 "Informative status line
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
-set laststatus=2 " always show the status line. 1 = for > 1 window, 0 = never.
+"set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
+"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L] 
+"set laststatus=2 " always show the status line. 1 = for > 1 window, 0 = never.
+
+if has('statusline')
+	set laststatus=2
+
+	" Broken down into easily includeable segments
+	set statusline=%<%f\   " Filename
+	set statusline+=%w%h%m%r " Options
+	set statusline+=%{fugitive#statusline()} "  Git Hotness
+	set statusline+=\ [%{&ff}/%Y]            " filetype
+	set statusline+=\ [%{getcwd()}]          " current dir
+	"set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
+	set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
 
 "Set color scheme
 syntax enable
