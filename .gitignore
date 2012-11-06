@@ -1,4 +1,4 @@
 bundle/snipmate/doc
 bundle/vim-unimpaired/doc
-bundle[inactive]
+bundle\[inactive\]
 *doc/tags
