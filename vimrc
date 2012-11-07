@@ -1,6 +1,6 @@
 " Enable pathogen plugin autoloader
 call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"call pathogen#helptags()
 call pathogen#infect()
 
 " map the leader to a more suitable character
