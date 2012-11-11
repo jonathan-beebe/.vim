@@ -24,9 +24,7 @@ nmap <silent> <Leader>c "+y
 " To have the completion behave similarly to a shell, i.e. complete only up to
 " the point of ambiguity (while still showing you what your options are),
 " also add the following
-" set wildmode=list:longest
-" Adding ,full will complete full word, looping thru choices ond 2nd,3rd+ tabs
-set wildmode=list:longest,full
+set wildmode=longest,list:longest
 
 "enables a menu at the bottom of the vim/gvim window.
 set wildmenu
@@ -341,7 +339,7 @@ let g:local_vimrc = ".vimrc.local"
 " 1) vimrc 2) test.js  
 " http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
 if exists("+showtabline")
-     function MyTabLine()
+     function! MyTabLine()
          let s = ''
          let t = tabpagenr()
          let i = 1
@@ -385,3 +383,11 @@ map <leader>ll :ListMethods<CR>
 set tags=./tags,tags,./
 
 let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+
+" SuperTab option for context aware completion
+let g:SuperTabDefaultCompletionType = "context"
+
+" Disable auto popup, use <Tab> to autocomplete
+"let g:clang_complete_auto = 0
+" Show clang errors in the quickfix window
+let g:clang_complete_copen = 1
