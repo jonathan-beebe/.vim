@@ -127,3 +127,6 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule "bundle/tabman"]
+	path = bundle/tabman
+	url = https://github.com/kien/tabman.vim.git

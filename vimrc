@@ -129,6 +129,9 @@ set ofu=syntaxcomplete#Complete
 map <F8> :TagbarToggle<cr>
 let g:tagbar_left = 1
 
+" Toggle TabMan for feature-rich tab management
+map <F7> :TMToggle<cr>
+
 " Loop through open tabs using F6 and Shift + F6.
 map <F6> :tabn<cr>
 map <S-F6> :tabp<cr>
