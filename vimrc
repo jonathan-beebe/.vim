@@ -387,10 +387,4 @@ set tags=./tags,tags,./
 
 let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 
-" SuperTab option for context aware completion
-let g:SuperTabDefaultCompletionType = "context"
-
-" Disable auto popup, use <Tab> to autocomplete
-"let g:clang_complete_auto = 0
-" Show clang errors in the quickfix window
-let g:clang_complete_copen = 1
+set showbreak=↪
