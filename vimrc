@@ -24,9 +24,7 @@ nmap <silent> <Leader>c "+y
 " To have the completion behave similarly to a shell, i.e. complete only up to
 " the point of ambiguity (while still showing you what your options are),
 " also add the following
-" set wildmode=list:longest
-" Adding ,full will complete full word, looping thru choices ond 2nd,3rd+ tabs
-set wildmode=list:longest,full
+set wildmode=longest,list:longest
 
 "enables a menu at the bottom of the vim/gvim window.
 set wildmenu
@@ -78,7 +76,7 @@ if has('statusline')
 	set statusline+=%w%h%m%r " Options
 	set statusline+=%{fugitive#statusline()} "  Git Hotness
 	set statusline+=\ [%{&ff}/%Y]            " filetype
-	set statusline+=\ [%{getcwd()}]          " current dir
+	"set statusline+=\ [%{getcwd()}]          " current dir
 	"set statusline+=\ [A=\%03.3b/H=\%02.2B] " ASCII / Hexadecimal value of char
 	set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
@@ -130,6 +128,9 @@ set ofu=syntaxcomplete#Complete
 "map <F8> :TlistToggle<cr>
 map <F8> :TagbarToggle<cr>
 let g:tagbar_left = 1
+
+" Toggle TabMan for feature-rich tab management
+map <F7> :TMToggle<cr>
 
 " Loop through open tabs using F6 and Shift + F6.
 map <F6> :tabn<cr>
@@ -341,7 +342,7 @@ let g:local_vimrc = ".vimrc.local"
 " 1) vimrc 2) test.js  
 " http://vim.wikia.com/wiki/Show_tab_number_in_your_tab_line
 if exists("+showtabline")
-     function MyTabLine()
+     function! MyTabLine()
          let s = ''
          let t = tabpagenr()
          let i = 1
@@ -385,3 +386,5 @@ map <leader>ll :ListMethods<CR>
 set tags=./tags,tags,./
 
 let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+
+set showbreak=↪
