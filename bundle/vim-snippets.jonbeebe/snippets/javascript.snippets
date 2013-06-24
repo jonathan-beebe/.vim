@@ -10,3 +10,18 @@ snippet /**overview
 	 * @fileoverview ${1:Description of file, uses, dependencies, etc.}
 	 * @author ${2:email} (${3:Firstname Lastname})
 	 */
+snippet define normal
+	define([
+		${1:Includes}
+	], function(${2:Variables}) {
+
+		${3:Content}
+
+	});
+	
+snippet define simple
+	define(function(require) {
+	
+		${1:Content}
+	
+	});

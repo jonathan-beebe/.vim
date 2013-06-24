@@ -83,8 +83,8 @@ endif
 
 "Set color scheme
 syntax enable
-set background=light
-" set background=dark
+" set background=light
+set background=dark
 " set t_Co=16
 set t_Co=256
 " let g:solarized_termcolors=16
@@ -388,3 +388,8 @@ set tags=./tags,tags,./
 let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 
 set showbreak=↪
+
+let g:ctrlp_root_markers = ['.ctrlp']
+
+" Need to tell terminal it's ansi so the number pad works
+"set term=ansi
