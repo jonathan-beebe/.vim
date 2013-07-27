@@ -23,6 +23,16 @@ To update an existing installation:
         # the normal `git submodule update` does not work for this purpose.
         git submodule foreach 'git pull origin master'
 
+Having problems with submodules? Need to remove one? [Check out this SO answer](http://stackoverflow.com/a/1260982/123781)
+
+1. Delete the relevant section from the `.gitmodules` file.
+2. Stage the `.gitmodules` changes `git add .gitmodules`
+3. Delete the relevant section from `.git/config`.
+4. Run `git rm --cached path_to_submodule` (no trailing slash).
+5. Run `rm -rf .git/modules/submodule_name`
+6. Commit
+7. Delete the now untracked submodule files `rm -rf path_to_submodule`
+
 Link the `vim` folder and `vimrc` to correct location.
 
 	ln -s /home/beebe/Source/vim /home/beebe/.vim
