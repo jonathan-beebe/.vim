@@ -2,3 +2,4 @@ bundle/snipmate/doc
 bundle/vim-unimpaired/doc
 bundle\[disabled\]
 *doc/tags
+.netrwhist
