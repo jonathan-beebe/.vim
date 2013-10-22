@@ -13,4 +13,4 @@ setlocal noexpandtab! " do *not* exptand spaces into tabs
 setlocal noet
 
 " cause the document to be re-tabbed, converting spaces to tabs.
-retab!
+" retab!

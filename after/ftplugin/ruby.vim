@@ -6,7 +6,7 @@ setlocal smartindent " is like 'autoindent' but also recognizes some C syntax to
 setlocal tabstop=2 " set tab character to 2 characters
 setlocal expandtab " turn tabs into whitespace
 
-retab         " cause all existing tabs to be rendered as spaces
+" retab         " cause all existing tabs to be rendered as spaces
 
 setlocal shiftwidth=2 "indent width for autoindent
 

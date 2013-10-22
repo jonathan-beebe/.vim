@@ -268,7 +268,7 @@ map Q <Nop>
 
 " Auto-compile a style.less file into style.css
 " http://forrst.com/posts/Make_vim_compile_less_css_files_on_save-D0v
-autocmd BufWritePost *.less exe '!lessc ' . shellescape(expand('<afile>')) . ' > ' . shellescape(expand('<afile>:r') . '.css')
+" autocmd BufWritePost *.less exe '!lessc ' . shellescape(expand('<afile>')) . ' > ' . shellescape(expand('<afile>:r') . '.css')
 
 " Toggle the "paste mode"
 set pastetoggle=<F2>
@@ -417,3 +417,6 @@ let g:syntastic_check_on_open=1
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
+
+" Enable Powerline
+set rtp+=~/Source/system/powerline/powerline/bindings/vim
