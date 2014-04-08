@@ -420,3 +420,14 @@ set completeopt-=preview
 
 " Enable Powerline
 set rtp+=~/Source/system/powerline/powerline/bindings/vim
+
+" ack support
+" " ==> :help ack
+let g:ackprg = 'ag --nogroup --nocolor --column --follow'
+
+" unite for file/buffer/kitchen-sink search
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
