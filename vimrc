@@ -431,3 +431,6 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
+
+" Enable Handlebars abbreviations
+let g:mustache_abbreviations = 1
