@@ -154,3 +154,6 @@
 [submodule "bundle/vim-textobj-quotes"]
 	path = bundle/vim-textobj-quotes
 	url = https://github.com/beloglazov/vim-textobj-quotes.git
+[submodule "bundle/vim-jsx"]
+	path = bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
