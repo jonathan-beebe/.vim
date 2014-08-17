@@ -20,7 +20,7 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'sjbach/lusty'
 Bundle 'vim-scripts/argtextobj.vim'
-Bundle 'vim-scripts/local_vimrc.vim'
+"Bundle 'vim-scripts/local_vimrc.vim'
 Bundle 'sudo.vim'
 Bundle 'tpope/vim-repeat'
 Bundle 'kshenoy/vim-signature'
@@ -371,10 +371,10 @@ imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 " nnoremap gp `[v`]
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-" Set the filename for all local vimrc files.
-" These will be auto-loaded after the main vimrc
-" thanks to the local_vimrc plugin
-let g:local_vimrc = ".vimrc.local"
+" Project-specific .vimrc files
+" http://fooberry.com/2013/01/24/per-project-vimrc-to-save-the-day/
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
 
 " Prefix the name of each tab with a number, e.g.
 " 1) vimrc 2) test.js  
@@ -469,6 +469,7 @@ if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
+  set grepprg=ag\ --nogroup\ --nocolor
 endif
 
 " Enable Handlebars abbreviations
@@ -481,8 +482,11 @@ set laststatus=2
 " Unite
 nnoremap <C-p> :Unite file_rec/async<cr>
 let g:unite_source_history_yank_enable = 1
+let g:unite_ignore_source_files = ['.DS_Store']
+call unite#custom#source('file_rec/async,file_rec,file,grep', 'ignore_pattern', '\(node_modules\|bower_components\)/*')
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>r :<C-u>Unite file_rec/async -start-insert <cr>
+nnoremap <leader>f :<C-u>Unite file_rec/async -start-insert <cr>
 nnoremap <leader>b :<C-u>Unite buffer -start-insert <cr>
-nnoremap <leader>t :<C-u>Unite file -start-insert <cr>
+nnoremap <leader>l :<C-u>Unite file -start-insert <cr>
+nnoremap <leader>/ :Unite grep:.<cr>
 
