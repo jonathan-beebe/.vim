@@ -1,7 +1,47 @@
-" Enable pathogen plugin autoloader
-call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-call pathogen#infect()
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!  
+Bundle 'gmarik/vundle'
+
+Bundle 'sjl/gundo.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'pangloss/vim-javascript'
+Bundle 'mattn/emmet-vim'
+Bundle 'skammer/vim-css-color'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'tpope/vim-surround'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'sjbach/lusty'
+Bundle 'vim-scripts/argtextobj.vim'
+Bundle 'vim-scripts/local_vimrc.vim'
+Bundle 'sudo.vim'
+Bundle 'tpope/vim-repeat'
+Bundle 'kshenoy/vim-signature'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'garbas/vim-snipmate'
+Bundle 'kien/ctrlp.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-haml'
+Bundle 'ervandew/supertab'
+Bundle 'rking/ag.vim'
+Bundle 'kana/vim-textobj-user'
+Bundle 'beloglazov/vim-textobj-quotes'
+Bundle 'mxw/vim-jsx'
+Bundle 'bling/vim-airline'
+
+"-----------------------------------------------------------------------------
 
 " map the leader to a more suitable character
 let mapleader = ","
@@ -9,12 +49,9 @@ let mapleader = ","
 "Map NERDTree to ,p
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
-" Command-T
-" Search through all open butters using ,T
-nmap <silent> <Leader>T :CommandTBuffer<CR>
-
 " Copy All to global clipboard
 nmap <silent> <Leader>ca gg"+yG
+
 " Copy to global clipboard
 " ex: 10,cy -> yank 10 lines to clipboard.
 " ex: ma10j,c'a -> # create mark `a`, move 10 lines down, 
@@ -126,11 +163,11 @@ set ofu=syntaxcomplete#Complete
 "let Tlist_Auto_Open = 1
 "let Tlist_Show_One_File = 1
 "map <F8> :TlistToggle<cr>
-map <F8> :TagbarToggle<cr>
-let g:tagbar_left = 1
+"map <F8> :TagbarToggle<cr>
+"let g:tagbar_left = 1
 
 " Toggle TabMan for feature-rich tab management
-map <F7> :TMToggle<cr>
+"map <F7> :TMToggle<cr>
 
 " Loop through open tabs using F6 and Shift + F6.
 map <F6> :tabn<cr>
@@ -203,7 +240,7 @@ map <leader>tc :call ToggleFoldColumns()<CR>
 let g:indent_on = 0
 
 " Add mootools snippets to javascript files.
-autocmd FileType javascript set ft=javascript.mootools
+"autocmd FileType javascript set ft=javascript.mootools
 
 " Map the session commands for more granular control
 nmap SSZ :wa<CR>:mksession! ~/Dropbox/Documents/vim/sessions/
@@ -223,16 +260,16 @@ nmap :W :w<CR>
 nmap :Q :q<CR>
 
 " Toggle visibility of the undo tree via the Gundo plugin
-nnoremap <F5> :GundoToggle<CR>
+"nnoremap <F5> :GundoToggle<CR>
 
 " Run `gjslint` on javascript files using `:make`
 " from https://gist.github.com/725689
-au BufNewFile,BufRead *.js set makeprg=gjslint\ %
-au BufNewFile,BufRead *.js set errorformat=%-P-----\ FILE\ \ :\ \ %f\ -----,Line\ %l\\,\ E:%n:\ %m,%-Q,%-GFound\ %s,%-GSome\ %s,%-Gfixjsstyle%s,%-Gscript\ can\ %s,%-G
+"au BufNewFile,BufRead *.js set makeprg=gjslint\ %
+"au BufNewFile,BufRead *.js set errorformat=%-P-----\ FILE\ \ :\ \ %f\ -----,Line\ %l\\,\ E:%n:\ %m,%-Q,%-GFound\ %s,%-GSome\ %s,%-Gfixjsstyle%s,%-Gscript\ can\ %s,%-G
 
 " Enable the auto-complete plugin at startup
 " Now vim will auto-popup the autocomplete list as-you-type
-let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_at_startup = 1
 
 " Window Swapping, from:
 " http://stackoverflow.com/questions/2586984/how-can-i-swap-positions-of-two-open-files-in-splits-in-vim/4903681#4903681
@@ -372,10 +409,10 @@ if exists("+showtabline")
 endif
 
 " Objective C (objc)
-au BufNewFile,BufRead *.m,*.h set ft=objc
+"au BufNewFile,BufRead *.m,*.h set ft=objc
 
 " List methods courtesy of cocoa plugin
-map <leader>ll :ListMethods<CR>
+"map <leader>ll :ListMethods<CR>
 
 "let tlist_objc_settings = 'ObjectiveC;P:protocols;i:interfaces;types(...)'
 "let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
@@ -385,7 +422,7 @@ map <leader>ll :ListMethods<CR>
 " Set vim to use tags
 set tags=./tags,tags,./
 
-let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+"let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
 
 set showbreak=↪
 
@@ -403,7 +440,7 @@ let g:ctrlp_root_markers = ['.ctrlp']
 " This does what it says on the tin. It will check your file on open too, not
 " just on save.
 " You might not want this, so just leave it out if you don't.
-let g:syntastic_check_on_open=1
+"let g:syntastic_check_on_open=1
 
 " -----------------------------------------------------------------------------
 " YouCompleteMe
@@ -414,9 +451,9 @@ let g:syntastic_check_on_open=1
 " like, so these should tidy it up a bit for you.
 " From this suggestion:
 " http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
-let g:ycm_add_preview_to_completeopt=0
-let g:ycm_confirm_extra_conf=0
-set completeopt-=preview
+"let g:ycm_add_preview_to_completeopt=0
+"let g:ycm_confirm_extra_conf=0
+"set completeopt-=preview
 
 " Enable Powerline
 set rtp+=~/Source/system/powerline/powerline/bindings/vim
