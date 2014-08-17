@@ -28,7 +28,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'garbas/vim-snipmate'
-Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'tpope/vim-bundler'
@@ -40,6 +39,8 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'beloglazov/vim-textobj-quotes'
 Bundle 'mxw/vim-jsx'
 Bundle 'bling/vim-airline'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/unite.vim'
 
 "-----------------------------------------------------------------------------
 
@@ -426,7 +427,8 @@ set tags=./tags,tags,./
 
 set showbreak=↪
 
-let g:ctrlp_root_markers = ['.ctrlp']
+" Ctrl-p
+"let g:ctrlp_root_markers = ['.ctrlp']
 
 " Need to tell terminal it's ansi so the number pad works
 "set term=ansi
@@ -475,3 +477,12 @@ let g:mustache_abbreviations = 1
 " Airline
 let g:airline_powerline_fonts = 1
 set laststatus=2
+
+" Unite
+nnoremap <C-p> :Unite file_rec/async<cr>
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>r :<C-u>Unite file_rec/async -start-insert <cr>
+nnoremap <leader>b :<C-u>Unite buffer -start-insert <cr>
+nnoremap <leader>t :<C-u>Unite file -start-insert <cr>
+
