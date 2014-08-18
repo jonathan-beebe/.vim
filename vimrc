@@ -10,7 +10,7 @@ Bundle 'gmarik/Vundle.vim'
 
 Bundle 'sjl/gundo.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'somethingkindawierd/vim-colors-solarized'
 Bundle 'pangloss/vim-javascript'
 Bundle 'mattn/emmet-vim'
 Bundle 'skammer/vim-css-color'
