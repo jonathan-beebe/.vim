@@ -1,4 +1,6 @@
 #!/bin/bash
-make bundle/vimproc.vim
-npm install bundle/tern_for_vim/
+git clone https://github.com/gmarik/Vundle.vim.git bundle/Vundle.vim
+vim +PluginInstall +qall
+cd bundle/vimproc.vim/; make;
+cd ../tern_for_vim; npm install;
 
