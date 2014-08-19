@@ -250,7 +250,7 @@ nmap SZ :wa<CR>:so ~/Dropbox/Documents/vim/sessions/
 set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
 
 " This unsets the 'last search pattern' register by hitting return
-nmap <silent> <leader>/ :nohlsearch<CR>
+nmap <silent> <leader>c/ :nohlsearch<CR>
 
 " Allow for a ; + w to work the same as <SHIFT + ;> + w
 nmap ;w :w<CR>
@@ -486,6 +486,7 @@ let g:unite_ignore_source_files = ['.DS_Store']
 call unite#custom#source('file_rec/async,file_rec,file,grep', 'ignore_pattern', '\(node_modules\|bower_components\)/*')
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 nnoremap <leader>f :<C-u>Unite file_rec/async -start-insert <cr>
+nnoremap <leader>g :<C-u>Unite file_rec/git -start-insert <cr>
 nnoremap <leader>b :<C-u>Unite buffer -start-insert <cr>
 nnoremap <leader>l :<C-u>Unite file -start-insert <cr>
 nnoremap <leader>/ :Unite grep:.<cr>
