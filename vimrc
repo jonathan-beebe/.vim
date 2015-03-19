@@ -485,6 +485,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_ignore_source_files = ['.DS_Store']
 call unite#custom#source('file_rec/async,file_rec,file,grep', 'ignore_pattern', '\(node_modules\|bower_components\)/*')
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_reverse'])
 nnoremap <leader>f :<C-u>Unite file_rec/async -start-insert <cr>
 nnoremap <leader>g :<C-u>Unite file_rec/git -start-insert <cr>
 nnoremap <leader>b :<C-u>Unite buffer -start-insert <cr>
