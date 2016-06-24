@@ -6,41 +6,47 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!  
-Bundle 'gmarik/Vundle.vim'
-
-Bundle 'sjl/gundo.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'somethingkindawierd/vim-colors-solarized'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mattn/emmet-vim'
-Bundle 'skammer/vim-css-color'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'tpope/vim-surround'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'sjbach/lusty'
-Bundle 'vim-scripts/argtextobj.vim'
-"Bundle 'vim-scripts/local_vimrc.vim'
-Bundle 'sudo.vim'
-Bundle 'tpope/vim-repeat'
-Bundle 'kshenoy/vim-signature'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'garbas/vim-snipmate'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'marijnh/tern_for_vim'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-haml'
-Bundle 'ervandew/supertab'
-Bundle 'rking/ag.vim'
-Bundle 'kana/vim-textobj-user'
-Bundle 'beloglazov/vim-textobj-quotes'
-Bundle 'mxw/vim-jsx'
-Bundle 'bling/vim-airline'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'Shougo/unite.vim'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'somethingkindawierd/vim-colors-solarized'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mattn/emmet-vim'
+Plugin 'skammer/vim-css-color'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-surround'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'sjbach/lusty'
+Plugin 'vim-scripts/argtextobj.vim'
+"Plugin 'vim-scripts/local_vimrc.vim'
+Plugin 'sudo.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'kshenoy/vim-signature'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-haml'
+Plugin 'ervandew/supertab'
+Plugin 'rking/ag.vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'beloglazov/vim-textobj-quotes'
+Plugin 'mxw/vim-jsx'
+Plugin 'bling/vim-airline'
+Plugin 'Shougo/vimproc.vim'
+"Plugin 'Shougo/unite.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+" Swift Support
+Plugin 'file:///Users/jon.beebe/Source/vim-swift'
+Plugin 'keith/swift.vim'
+" Plugin 'keith/sourcekittendaemon.vim'
+" Plugin 'mitsuse/autocomplete-swift'
 
 "-----------------------------------------------------------------------------
 
@@ -444,6 +450,15 @@ set showbreak=↪
 " You might not want this, so just leave it out if you don't.
 "let g:syntastic_check_on_open=1
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " -----------------------------------------------------------------------------
 " YouCompleteMe
 " -----------------------------------------------------------------------------
@@ -480,15 +495,26 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 
 " Unite
-nnoremap <C-p> :Unite file_rec/async<cr>
-let g:unite_source_history_yank_enable = 1
-let g:unite_ignore_source_files = ['.DS_Store']
-call unite#custom#source('file_rec/async,file_rec,file,grep', 'ignore_pattern', '\(node_modules\|bower_components\)/*')
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_reverse'])
-nnoremap <leader>f :<C-u>Unite file_rec/async -start-insert <cr>
-nnoremap <leader>g :<C-u>Unite file_rec/git -start-insert <cr>
-nnoremap <leader>b :<C-u>Unite buffer -start-insert <cr>
-nnoremap <leader>l :<C-u>Unite file -start-insert <cr>
-nnoremap <leader>/ :Unite grep:.<cr>
+" nnoremap <C-p> :Unite file_rec/async<cr>
+" let g:unite_source_history_yank_enable = 1
+" let g:unite_ignore_source_files = ['.DS_Store']
+" call unite#custom#source('file_rec/async,file_rec,file,grep', 'ignore_pattern', '\(node_modules\|bower_components\)/*')
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" call unite#filters#sorter_default#use(['sorter_reverse'])
+" nnoremap <leader>f :<C-u>Unite file_rec/async -start-insert <cr>
+" nnoremap <leader>g :<C-u>Unite file_rec/git -start-insert <cr>
+" nnoremap <leader>b :<C-u>Unite buffer -start-insert <cr>
+" nnoremap <leader>l :<C-u>Unite file -start-insert <cr>
+" nnoremap <leader>/ :Unite grep:.<cr>
 
+" Swift
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.dir(git|hg|svn)$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ }
