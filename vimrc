@@ -43,8 +43,10 @@ Plugin 'Shougo/vimproc.vim'
 "Plugin 'Shougo/unite.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 " Swift Support
-Plugin 'file:///Users/jon.beebe/Source/vim-swift'
+" Plugin 'file:///Users/jon.beebe/Source/vim-swift'
+Plugin 'kballard/vim-swift'
 Plugin 'keith/swift.vim'
+Plugin 'gfontenot/vim-xcode'
 " Plugin 'keith/sourcekittendaemon.vim'
 " Plugin 'mitsuse/autocomplete-swift'
 
