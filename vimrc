@@ -369,6 +369,10 @@ set hidden
 imap <leader>md <ESC>:w!<CR>:!markdown % < %.html && open %.html<CR><CR>a
 map  <leader>md <ESC>:w!<CR>:!markdown % < %.html && open %.html<CR><CR>a
 
+" Markdown support
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+
 " http://www.userobsessed.net/tips-and-tricks/2011/05/10/copy-and-paste-in-vim/
 " Fix vim pasting in Insert mode. Paste using ,v in insert mode.
 imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
